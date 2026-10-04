@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Soumia ❤️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#050204;
+}
+
+/* ================= البداية ================= */
+
+#startScreen{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #55152f 0%,
+      #250914 40%,
+      #050204 85%
+    );
+
+  transition:opacity 1.5s ease;
+}
+
+.start-stars{
+  position:absolute;
+  inset:0;
+}
+
+.start-title{
+  position:relative;
+  z-index:2;
+
+  color:white;
+  font-size:clamp(30px,8vw,58px);
+
+  margin-bottom:18px;
+
+  text-shadow:
+    0 0 12px #d52d58,
+    0 0 35px #8d1837;
+}
+
+.start-subtitle{
+  position:relative;
+  z-index:2;
+
+  color:#e8c7d2;
+  font-size:15px;
+
+  margin-bottom:32px;
+
+  direction:ltr;
+}
+
+.start-button{
+  position:relative;
+  z-index:2;
+
+  border:1px solid #d66a87;
+
+  background:
+    linear-gradient(
+      135deg,
+      #651631,
+      #9b294c
+    );
+
+  color:white;
+
+  padding:17px 38px;
+
+  border-radius:50px;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 20px rgba(180,40,80,.6),
+    inset 0 0 15px rgba(255,255,255,.08);
+
+  animation:buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.06);
+  }
+}
+
+/* ================= العد التنازلي ================= */
+
+#countdown{
+  position:fixed;
+  inset:0;
+  z-index:900;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  background:#000;
+
+  filter:grayscale(1);
+}
+
+#countNumber{
+  color:white;
+
+  font-size:clamp(
+    110px,
+    35vw,
+    260px
+  );
+
+  font-weight:bold;
+}
+
+@keyframes numberAnimation{
+
+  0%{
+    opacity:0;
+    transform:scale(.5);
+  }
+
+  25%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  75%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(1.5);
+  }
+
+}
+
+/* ================= الموقع الرئيسي ================= */
+
+#main{
+  position:fixed;
+  inset:0;
+
+  display:none;
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #55152f 0%,
+      #280a19 38%,
+      #080306 85%
+    );
+}
+
+/* ================= النجوم ================= */
+
+.star{
+  position:absolute;
+
+  width:2px;
+  height:2px;
+
+  background:white;
+
+  border-radius:50%;
+
+  opacity:.5;
+
+  animation:
+    starTwinkle 2.5s infinite alternate;
+}
+
+@keyframes starTwinkle{
+
+  from{
+    opacity:.15;
+    transform:scale(.5);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1.6);
+  }
+
+}
+
+/* ================= القمر ================= */
+
+.moon{
+  position:absolute;
+
+  width:75px;
+  height:75px;
+
+  border-radius:50%;
+
+  background:#fff4e6;
+
+  box-shadow:
+    0 0 25px #fff4e6,
+    0 0 70px rgba(255,244,230,.3);
+
+  top:7%;
+  left:8%;
+
+  opacity:.8;
+}
+
+/* ================= الورود ================= */
+
+.flower{
+  position:absolute;
+
+  font-size:27px;
+
+  opacity:.75;
+
+  animation:
+    flowerFloat 5s ease-in-out infinite;
+}
+
+@keyframes flowerFloat{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+  50%{
+    transform:
+      translateY(-18px)
+      rotate(8deg);
+  }
+
+}
+
+/* ================= الكلمات في الأطراف ================= */
+
+.corner{
+  position:absolute;
+
+  color:#d9a9b8;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  opacity:.7;
+
+  z-index:20;
+
+  direction:ltr;
+}
+
+.c1{
+  top:15px;
+  right:15px;
+}
+
+.c2{
+  top:15px;
+  left:15px;
+}
+
+.c3{
+  bottom:15px;
+  right:15px;
+}
+
+.c4{
+  bottom:15px;
+  left:15px;
+}
+
+/* ================= القلب ================= */
+
+.center{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+}
+
+/* القلب العادي */
+
+.heart-box{
+  position:relative;
+
+  width:220px;
+  height:220px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  animation:
+    heartBeat 1.5s infinite;
+}
+
+.heart{
+  position:absolute;
+
+  width:130px;
+  height:130px;
+
+  background:#941b3d;
+
+  transform:rotate(-45deg);
+
+  border-radius:15px;
+
+  box-shadow:
+    0 0 20px #b9284e,
+    0 0 55px rgba(185,40,78,.8);
+}
+
+.heart:before,
+.heart:after{
+
+  content:"";
+
+  position:absolute;
+
+  width:130px;
+  height:130px;
+
+  background:#941b3d;
+
+  border-radius:50%;
+}
+
+.heart:before{
+  top:-65px;
+  left:0;
+}
+
+.heart:after{
+  top:0;
+  left:65px;
+}
+
+.heart-name{
+  position:relative;
+
+  z-index:3;
+
+  color:white;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  text-shadow:
+    0 0 15px white;
+
+  direction:ltr;
+}
+
+@keyframes heartBeat{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.1);
+  }
+
+}
+
+/* ================= قلب الكلمات ================= */
+
+.word-heart{
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  width:360px;
+  height:330px;
+
+  margin:auto;
+
+  overflow:hidden;
+
+  transform:rotate(-1deg);
+}
+
+.word{
+  position:absolute;
+
+  color:#e9a9ba;
+
+  font-size:8px;
+
+  font-weight:bold;
+
+  white-space:nowrap;
+
+  opacity:0;
+
+  animation:
+    wordAppear 1s forwards;
+}
+
+@keyframes wordAppear{
+
+  from{
+    opacity:0;
+    transform:scale(.3);
+  }
+
+  to{
+    opacity:.85;
+    transform:scale(1);
+  }
+
+}
+
+.word-center{
+  position:absolute;
+
+  z-index:10;
+
+  color:white;
+
+  font-size:25px;
+
+  font-weight:bold;
+
+  direction:ltr;
+
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #b9284e;
+}
+
+/* ================= الألعاب النارية ================= */
+
+.spark{
+  position:absolute;
+
+  width:4px;
+  height:4px;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  left:50%;
+  bottom:0;
+
+  animation:
+    firework 2.5s ease-out forwards;
+}
+
+@keyframes firework{
+
+  0%{
+    transform:translate(0,0);
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translate(
+        calc(var(--x) * 1px),
+        calc(var(--y) * 1px)
+      );
+
+    opacity:0;
+  }
+
+}
+
+/* ================= الرسالة ================= */
+
+.message{
+  position:absolute;
+
+  width:90%;
+  max-width:700px;
+
+  text-align:center;
+
+  display:none;
+
+  color:white;
+
+  font-size:
+    clamp(
+      22px,
+      6vw,
+      40px
+    );
+
+  line-height:1.8;
+
+  text-shadow:
+    0 0 10px #d32f55,
+    0 0 30px #8d1837;
+
+  animation:
+    messageAppear 1.3s ease;
+}
+
+.message.show{
+  display:block;
+}
+
+.message-small{
+  font-size:
+    clamp(
+      15px,
+      4vw,
+      22px
+    );
+
+  color:#e7c3cf;
+}
+
+@keyframes messageAppear{
+
+  from{
+    opacity:0;
+
+    transform:
+      scale(.75)
+      translateY(25px);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+
+}
+
+/* ================= I LOVE YOU ================= */
+
+.love{
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  text-align:center;
+}
+
+.love.show{
+  display:flex;
+
+  animation:
+    messageAppear 1.2s ease;
+}
+
+.love-text{
+  direction:ltr;
+
+  color:white;
+
+  font-size:
+    clamp(
+      38px,
+      11vw,
+      80px
+    );
+
+  font-weight:bold;
+
+  text-shadow:
+    0 0 15px #d32f55,
+    0 0 45px #8d1837;
+}
+
+.love-heart{
+  font-size:65px;
+
+  margin-top:15px;
+
+  animation:
+    heartBeat 1.2s infinite;
+}
+
+/* ================= الاعتذار ================= */
+
+.apology{
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  text-align:center;
+}
+
+.apology.show{
+  display:flex;
+
+  animation:
+    messageAppear 1.3s ease;
+}
+
+.apology-box{
+  max-width:700px;
+
+  width:92%;
+
+  padding:30px 22px;
+
+  border-radius:25px;
+
+  background:
+    rgba(55,8,25,.55);
+
+  border:
+    1px solid
+    rgba(220,100,130,.35);
+
+  box-shadow:
+    0 0 30px
+    rgba(140,25,55,.3),
+
+    inset 0 0 30px
+    rgba(255,255,255,.03);
+}
+
+.apology-title{
+  color:white;
+
+  font-size:
+    clamp(
+      22px,
+      6vw,
+      35px
+    );
+
+  margin-bottom:20px;
+}
+
+.apology-text{
+  color:#f4dce4;
+
+  font-size:
+    clamp(
+      17px,
+      4.5vw,
+      25px
+    );
+
+  line-height:2;
+}
+
+/* ================= النهاية ================= */
+
+.final{
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #55152f,
+      #210917 40%,
+      #050204 85%
+    );
+}
+
+.final.show{
+  display:flex;
+
+  animation:
+    finalAppear 2s ease;
+}
+
+.final-title{
+  color:white;
+
+  font-size:
+    clamp(
+      27px,
+      8vw,
+      55px
+    );
+
+  font-weight:bold;
+
+  text-shadow:
+    0 0 15px #d32f55,
+    0 0 40px #8d1837;
+}
+
+.final-date{
+  margin-top:20px;
+
+  color:#f1cbd6;
+
+  font-size:
+    clamp(
+      20px,
+      5vw,
+      32px
+    );
+
+  direction:ltr;
+}
+
+.final-heart{
+  margin-top:25px;
+
+  font-size:65px;
+
+  animation:
+    heartBeat 1.4s infinite;
+}
+
+@keyframes finalAppear{
+
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+/* ================= القلوب الطائرة ================= */
+
+.floating-heart{
+  position:absolute;
+
+  color:#b9284e;
+
+  font-size:20px;
+
+  bottom:-30px;
+
+  animation:
+    heartFloat 6s linear forwards;
+}
+
+@keyframes heartFloat{
+
+  from{
+    transform:
+      translateY(0)
+      rotate(0);
+
+    opacity:0;
+  }
+
+  15%{
+    opacity:.8;
+  }
+
+  to{
+    transform:
+      translateY(-110vh)
+      rotate(360deg);
+
+    opacity:0;
+  }
+
+}
+
+/* ================= الهاتف ================= */
+
+@media(max-width:600px){
+
+  .word-heart{
+    width:320px;
+    height:300px;
+  }
+
+  .word{
+    font-size:7px;
+  }
+
+  .heart-box{
+    width:190px;
+    height:190px;
+  }
+
+  .heart{
+    width:115px;
+    height:115px;
+  }
+
+  .heart:before,
+  .heart:after{
+    width:115px;
+    height:115px;
+  }
+
+  .heart:before{
+    top:-57px;
+  }
+
+  .heart:after{
+    left:57px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================================================= -->
+<!-- البداية -->
+<!-- ================================================= -->
+
+<section id="startScreen">
+
+  <div
+    class="start-stars"
+    id="startStars">
+  </div>
+
+  <div class="start-title">
+    A Special Surprise ❤️
+  </div>
+
+  <div class="start-subtitle">
+    Something made just for you...
+  </div>
+
+  <button
+    class="start-button"
+    onclick="begin()">
+
+    اضغطي هنا ❤️
+
+  </button>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- العد التنازلي -->
+<!-- ================================================= -->
+
+<section id="countdown">
+
+  <div id="countNumber">
+    3
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- الموقع -->
+<!-- ================================================= -->
+
+<section id="main">
+
+  <!-- القمر -->
+
+  <div class="moon"></div>
+
+
+  <!-- النجوم -->
+
+  <div id="stars"></div>
+
+
+  <!-- الكلمات الجانبية -->
+
+  <div class="corner c1">
+    YOU ❤️
+  </div>
+
+  <div class="corner c2">
+    A LOVE ❤️
+  </div>
+
+  <div class="corner c3">
+    YOU ❤️
+  </div>
+
+  <div class="corner c4">
+    A LOVE ❤️
+  </div>
+
+
+  <!-- الورود -->
+
+  <div
+    class="flower"
+    style="top:15%;right:8%;">
+
+    🌹
+
+  </div>
+
+  <div
+    class="flower"
+    style="bottom:17%;left:8%;">
+
+    🌹
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- المشهد 5 -->
+  <!-- ================================================= -->
+
+  <div class="center">
+
+    <!-- القلب -->
+
+    <div
+      id="heartBox"
+      class="heart-box">
+
+      <div class="heart"></div>
+
+      <div class="heart-name">
+        Soumia ❤️
+      </div>
+
+    </div>
+
+
+    <!-- قلب مكوّن من الكلمات -->
+
+    <div
+      id="wordHeart"
+      class="word-heart">
+
+      <div class="word-center">
+        I LOVE YOU ❤️
+      </div>
+
+    </div>
+
+
+    <!-- رسالة عيد الميلاد -->
+
+    <div
+      id="birthdayMessage"
+      class="message">
+
+      Happy Birthday, Soumia ❤️
+
+      <br>
+
+      <span class="message-small">
+
+        May your smile always shine
+        brighter than the stars ✨
+
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- I LOVE YOU -->
+  <!-- ================================================= -->
+
+  <div
+    id="loveScreen"
+    class="love">
+
+    <div class="love-text">
+      I LOVE YOU
+    </div>
+
+    <div class="love-heart">
+      ❤️
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- الاعتذار -->
+  <!-- ================================================= -->
+
+  <div
+    id="apologyScreen"
+    class="apology">
+
+    <div class="apology-box">
+
+      <div class="apology-title">
+        إلى سمية ❤️
+      </div>
+
+      <div class="apology-text">
+
+        آسف لأنني لم أستطع أن أقدم لكِ
+        هدية مادية بسبب البعد بيننا 😍
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================================= -->
+  <!-- النهاية -->
+  <!-- ================================================= -->
+
+  <div
+    id="finalScreen"
+    class="final">
+
+    <div class="final-title">
+      Happy Birthday, Soumia ❤️
+    </div>
+
+    <div class="final-date">
+      15 October 2010 🎂
+    </div>
+
+    <div class="final-heart">
+      ❤️
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- الأغنية -->
+<!-- ================================================= -->
+
+<audio
+  id="birthdaySong"
+  preload="auto">
+
+  <source
+    src="happy-birthday.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+/* ================================================= */
+/* النجوم */
+/* ================================================= */
+
+function createStars(){
+
+  const containers=[
+    document.getElementById("stars"),
+    document.getElementById("startStars")
+  ];
+
+  containers.forEach(container=>{
+
+    if(!container)return;
+
+    for(let i=0;i<110;i++){
+
+      const star=
+        document.createElement("div");
+
+      star.className="star";
+
+      star.style.left=
+        Math.random()*100+"%";
+
+      star.style.top=
+        Math.random()*100+"%";
+
+      star.style.animationDelay=
+        Math.random()*3+"s";
+
+      container.appendChild(star);
+
+    }
+
+  });
+
+}
+
+
+/* ================================================= */
+/* إنشاء قلب من كلمات I LOVE YOU */
+/* ================================================= */
+
+function createWordHeart(){
+
+  const container=
+    document.getElementById("wordHeart");
+
+  const total=150;
+
+  for(let i=0;i<total;i++){
+
+    const word=
+      document.createElement("span");
+
+    word.className="word";
+
+    word.textContent=
+      i%2===0
+      ? "I LOVE YOU"
+      : "❤️";
+
+    /*
+      معادلة القلب
+      x = 16 sin³(t)
+      y = 13cos(t)
+          -5cos(2t)
+          -2cos(3t)
+          -cos(4t)
+    */
+
+    const t=
+      Math.PI*2*i/total;
+
+    const x=
+      16*Math.pow(Math.sin(t),3);
+
+    const y=
+      13*Math.cos(t)
+      -5*Math.cos(2*t)
+      -2*Math.cos(3*t)
+      -Math.cos(4*t);
+
+    word.style.left=
+      (50+x*2.5)+"%";
+
+    word.style.top=
+      (50-y*2.5)+"%";
+
+    word.style.animationDelay=
+      (i*0.015)+"s";
+
+    container.appendChild(word);
+
+  }
+
+}
+
+
+/* ================================================= */
+/* الألعاب النارية */
+/* ================================================= */
+
+function createFirework(){
+
+  for(let i=0;i<100;i++){
+
+    const spark=
+      document.createElement("div");
+
+    spark.className="spark";
+
+    const angle=
+      Math.random()*Math.PI*2;
+
+    const distance=
+      150+Math.random()*350;
+
+    spark.style.setProperty(
+      "--x",
+      Math.cos(angle)*distance
+    );
+
+    spark.style.setProperty(
+      "--y",
+      -Math.abs(
+        Math.sin(angle)*distance
+      )
+    );
+
+    document
+      .getElementById("main")
+      .appendChild(spark);
+
+    setTimeout(()=>{
+      spark.remove();
+    },3000);
+
+  }
+
+}
+
+
+/* ================================================= */
+/* القلوب الطائرة */
+/* ================================================= */
+
+function createFloatingHearts(){
+
+  const main=
+    document.getElementById("main");
+
+  for(let i=0;i<35;i++){
+
+    const heart=
+      document.createElement("div");
+
+    heart.className=
+      "floating-heart";
+
+    heart.textContent="❤️";
+
+    heart.style.left=
+      Math.random()*100+"%";
+
+    heart.style.animationDelay=
+      Math.random()*5+"s";
+
+    heart.style.fontSize=
+      (12+Math.random()*20)+"px";
+
+    main.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },7000);
+
+  }
+
+}
+
+
+/* ================================================= */
+/* تشغيل الأغنية */
+/* ================================================= */
+
+function startMusic(){
+
+  const song=
+    document.getElementById(
+      "birthdaySong"
+    );
+
+  song.volume=.8;
+
+  song.play().catch(()=>{
+    console.log(
+      "ضع ملف happy-birthday.mp3 في GitHub"
+    );
+  });
+
+}
+
+
+/* ================================================= */
+/* العد التنازلي */
+/* ================================================= */
+
+function runCountdown(){
+
+  const countdown=
+    document.getElementById(
+      "countdown"
+    );
+
+  const number=
+    document.getElementById(
+      "countNumber"
+    );
+
+  countdown.style.display="flex";
+
+  let count=3;
+
+  function showNumber(){
+
+    number.textContent=count;
+
+    number.style.animation="none";
+
+    void number.offsetWidth;
+
+    number.style.animation=
+      "numberAnimation 2s ease-in-out forwards";
+
+
+    setTimeout(()=>{
+
+      if(count===1){
+
+        countdown.style.display="none";
+
+        showMain();
+
+        return;
+
+      }
+
+      count--;
+
+      showNumber();
+
+    },2000);
+
+  }
+
+  showNumber();
+
+}
+
+
+/* ================================================= */
+/* المشهد الرئيسي */
+/* ================================================= */
+
+function showMain(){
+
+  const main=
+    document.getElementById("main");
+
+  main.style.display="block";
+
+  createFirework();
+
+  createFloatingHearts();
+
+
+  /*
+    المشهد 5
+    القلب + الكلمات
+    7 ثواني
+  */
+
+  setTimeout(()=>{
+
+    document.getElementById(
+      "heartBox"
+    ).style.display="none";
+
+    const wordHeart=
+      document.getElementById(
+        "wordHeart"
+      );
+
+    wordHeart.style.display="flex";
+
+    createWordHeart();
+
+  },1000);
+
+
+  /*
+    بعد 7 ثواني
+    ننتقل للمشهد 6
+  */
+
+  setTimeout(()=>{
+
+    document.getElementById(
+      "wordHeart"
+    ).style.display="none";
+
+    document.getElementById(
+      "birthdayMessage"
+    ).classList.add("show");
+
+  },7000);
+
+
+  /*
+    المشهد 6 = 5 ثواني
+  */
+
+  setTimeout(()=>{
+
+    document.getElementById(
+      "birthdayMessage"
+    ).style.display="none";
+
+    document.getElementById(
+      "loveScreen"
+    ).classList.add("show");
+
+  },12000);
+
+
+  /*
+    المشهد 7 = 5 ثواني
+  */
+
+  setTimeout(()=>{
+
+    document.getElementById(
+      "loveScreen"
+    ).style.display="none";
+
+    document.getElementById(
+      "apologyScreen"
+    ).classList.add("show");
+
+  },17000);
+
+
+  /*
+    المشهد 8 = 5 ثواني
+  */
+
+  setTimeout(()=>{
+
+    document.getElementById(
+      "apologyScreen"
+    ).style.display="none";
+
+    document.getElementById(
+      "finalScreen"
+    ).classList.add("show");
+
+    createFloatingHearts();
+
+  },22000);
+
+}
+
+
+/* ================================================= */
+/* البداية */
+/* ================================================= */
+
+function begin(){
+
+  /*
+    تشغيل الأغنية مباشرة بعد الضغط
+  */
+
+  startMusic();
+
+
+  const start=
+    document.getElementById(
+      "startScreen"
+    );
+
+  start.style.opacity="0";
+
+
+  setTimeout(()=>{
+
+    start.style.display="none";
+
+    runCountdown();
+
+  },1500);
+
+}
+
+
+/* ================================================= */
+/* تشغيل النجوم */
+/* ================================================= */
+
+createStars();
+
+</script>
+
+</body>
+  </html>
